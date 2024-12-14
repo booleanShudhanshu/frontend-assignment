@@ -4,8 +4,8 @@ import Pagination from "./pagination";
 import "./styles.css";
 import PageSizeDropdown from "./pagesize";
 import { COLUMNS } from "./constants";
-import Loading from "../partially/loading";
-import Error from "../partially/error";
+import Loading from "../partials/loading";
+import Error from "../partials/error";
 
 const KickstarterProjects = () => {
   const [projects, setProjects] = useState([]);
