@@ -17,6 +17,12 @@
     flex: 1;
     overflow-y: auto;
 }
+.project-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+}
+
  /* make scroll bar thin for windows OS */
 .table-contaner::-webkit-scrollbar {
     width: 0.2em;
