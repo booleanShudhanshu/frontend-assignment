@@ -1,17 +1,17 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
-export const DOTS = '...';
+export const DOTS = "...";
 
 const range = (start, end) => {
   let length = end - start + 1;
   return Array.from({ length }, (_, index) => index + start);
 };
 
- const usePaginationRange = ({
+const usePaginationRange = ({
   totalCount,
   pageSize,
-  siblingCount=1,
-  currentPage
+  siblingCount = 1,
+  currentPage,
 }) => {
   // Memoizing the pagination range to avoid recalculating on every render
   const paginationRange = useMemo(() => {
@@ -33,14 +33,14 @@ const range = (start, end) => {
 
     const firstPageIndex = 1;
     const lastPageIndex = totalPageCount;
-// If no left dots, but right dots are needed
+    // If no left dots, but right dots are needed
     if (!shouldShowLeftDots && shouldShowRightDots) {
       let leftItemCount = 3 + 2 * siblingCount;
       let leftRange = range(1, leftItemCount);
 
       return [...leftRange, DOTS, totalPageCount];
     }
-// If left dots are needed, but no right dots
+    // If left dots are needed, but no right dots
     if (shouldShowLeftDots && !shouldShowRightDots) {
       let rightItemCount = 3 + 2 * siblingCount;
       let rightRange = range(
@@ -49,7 +49,7 @@ const range = (start, end) => {
       );
       return [firstPageIndex, DOTS, ...rightRange];
     }
- // If both left and right dots are needed
+    // If both left and right dots are needed
     if (shouldShowLeftDots && shouldShowRightDots) {
       let middleRange = range(leftSiblingIndex, rightSiblingIndex);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
@@ -59,5 +59,4 @@ const range = (start, end) => {
   return paginationRange;
 };
 
-
-export default usePaginationRange
+export default usePaginationRange;
