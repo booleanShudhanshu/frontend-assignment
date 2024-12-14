@@ -71,7 +71,7 @@ tr:hover {
 .page-size-select {
     padding: 4px 10px;
     font-size: 15px;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     border: 1px ridge;
     border-radius: 5px;
     outline: none;
@@ -81,15 +81,18 @@ tr:hover {
 .page-size-select:focus {
     border-color: #333;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    background-color: #eff4ff;
 }
 
 .page-size-select:active {
     border-color: #333;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    background-color: #eff4ff;
 }
 
 .page-size-select:hover {
     border-color: #333;
+    background-color: #eff4ff;
 }
 
 .page-size-select option {
@@ -131,12 +134,12 @@ tr:hover {
 }
 
 .pagination-container .pagination-item:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: #edf1f9;
     cursor: pointer;
 }
 
 .pagination-container .pagination-item-active {
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: #edf1f9;
 }
 
 .pagination-container .pagination-item .arrow::before {

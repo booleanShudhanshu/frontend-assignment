@@ -15,7 +15,6 @@ const PageSizeDropdown = ({ pageSize, onPageSizeChange }) => {
         aria-label="Select the number of items per page"
         id="dropdown"
         tabIndex="0"
-        autoFocus
         className="page-size-select"
         value={pageSize}
         onChange={onPageSizeChange}
