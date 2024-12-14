@@ -65,15 +65,26 @@ const KickstarterProjects = () => {
       );
     });
 
-    return { "percentage.funded": maxPercentageLength,"amt.pledged": maxAmountLength };
+    return {
+      "percentage.funded": maxPercentageLength,
+      "amt.pledged": maxAmountLength,
+    };
   }, [currentPageData]);
 
-  if (loading) return <Loading message="Loading projects data..."/>
-  if (error) return <Error error={error}/>;
+  if (loading) return <Loading message="Loading projects data..." />;
+  if (error) return <Error error={error} />;
 
   return (
     <div className="kickstarter-projects">
-      <p className="kickstarter-projects-heading">Kickstarter Projects</p>
+      <p className="kickstarter-projects-heading">
+        <a href="https://www.saaslabs.co/" target="_blank" rel="noreferrer">
+        <img
+          src="https://cdn.prod.website-files.com/60c6002b3fee00bd705d0f75/6101cde41f263fe014585994_Frame%205194.png"
+          alt="company-logo"
+        />
+        </a>
+        Kickstarter Projects
+      </p>
       <div className="table-contaner">
         <table
           className="project-table"
@@ -84,7 +95,7 @@ const KickstarterProjects = () => {
           <thead>
             <tr>
               {COLUMNS.map((col, index) => (
-                <th key={col.key +index} scope="col" role={"columnheader"}>
+                <th key={col.key + index} scope="col" role={"columnheader"}>
                   {col.display_name}
                 </th>
               ))}

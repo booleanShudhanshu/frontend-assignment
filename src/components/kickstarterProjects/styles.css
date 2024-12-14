@@ -8,6 +8,9 @@
 .kickstarter-projects-heading {
     font-size: 26px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap:8px
 }
 
 .table-contaner {
