@@ -28,9 +28,15 @@ const KickstarterProjects = () => {
         setLoading(false);
       }
     };
+    /**
+     * fetch all projct data and handle pagination
+     */
     fetchProjects();
   }, []);
 
+  /**
+   * return data of particular page based on page number and page size
+   */
   const getPageData = (pageNumber, page_size, data) => {
     const startIndex = (pageNumber - 1) * page_size;
     const endIndex = startIndex + page_size;
@@ -50,6 +56,9 @@ const KickstarterProjects = () => {
     setCurrentPage(1);
     setCurrentPageData(getPageData(1, size, projects));
   };
+  /**
+   * Calculate maximum length of values of "percentage.funded" and "amt.pledged" for startPad of whitespace
+   */
   const maxLength = useMemo(() => {
     let maxPercentageLength = 0;
     let maxAmountLength = 0;

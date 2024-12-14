@@ -2,29 +2,33 @@ import React from "react";
 import "./styles.css";
 import usePaginationRange, { DOTS } from "./usePaginationRange";
 const Pagination = ({ totalCount, currentPage, onPageChange, pageSize }) => {
-  const paginationRange = usePaginationRange({
+  // Get the current page date based on currentPage, totalCount, pageSize, and siblingCount
+  const currentPageData = usePaginationRange({
     currentPage,
     totalCount,
-    siblingCount: 1,
+    siblingCount: 1, // Number of sibling pages shown around the current page (exception is start and end page)
     pageSize,
   });
   const onPrevious = () => {
-    if (currentPage > 1) onPageChange(currentPage - 1);
+    if (currentPage > 1) {
+      onPageChange(currentPage - 1);
+    }
   };
 
   const onNext = () => {
-    if(currentPage < Math.ceil(totalCount/pageSize))
-    onPageChange(currentPage + 1);
+    if (currentPage < Math.ceil(totalCount / pageSize)) {
+      onPageChange(currentPage + 1);
+    }
   };
- 
 
-  let lastPage = paginationRange[paginationRange.length - 1];
+  let lastPage = currentPageData[currentPageData.length - 1];
   return (
     <ul
       className={"pagination-container"}
       role="navigation"
       aria-label="Pagination"
     >
+      {/* Previous button  */}
       <li
         className={
           currentPage === 1
@@ -41,9 +45,9 @@ const Pagination = ({ totalCount, currentPage, onPageChange, pageSize }) => {
           e.key === "Enter" || e.key === " " ? onPrevious() : null
         }
       >
-        <div className="arrow left" />
+        <div>&lt;</div>
       </li>
-      {paginationRange.map((pageNumber, index) => {
+      {currentPageData.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
           return (
             <li
@@ -80,6 +84,7 @@ const Pagination = ({ totalCount, currentPage, onPageChange, pageSize }) => {
           </li>
         );
       })}
+      {/* Next button  */}
       <li
         tabIndex={0}
         className={
@@ -96,7 +101,7 @@ const Pagination = ({ totalCount, currentPage, onPageChange, pageSize }) => {
         role="button"
         aria-label="Next Page"
       >
-        <div className="arrow right" />
+        <div>&gt;</div>
       </li>
     </ul>
   );
